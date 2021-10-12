@@ -1,0 +1,40 @@
+{% extends 'Signup_App/master.html' %}
+{% load static %}
+{% block content %}
+<div style="margin-left:39%;">
+{% if data  %}
+  {% for k in data %}
+  {% if k.user == user %}
+
+
+    <div>
+  <div class="card" style="width: 18rem;">
+    {% if k.image%}
+  <img class="card-img-top" src="{{k.image.url}}" alt="Card image cap">
+    {%  else %}
+    <img class="card-img-top" src="https://www.pikpng.com/pngl/m/379-3794123_icon-marketer-person-businessman-sales-business-cartoon-clipart.png" alt="Card image cap">
+    {%  endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{user.username}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Username : {{user.username}}</li>
+    <li class="list-group-item">Full name : {{user.first_name}} {{user.last_name}}</li>
+    <li class="list-group-item">Email :{{user.email}} </li>
+      <li class="list-group-item">User type : {{k.user_type}}</li>
+    <li class="list-group-item">State : {{k.state}}</li>
+    <li class="list-group-item">District : {{k.district}}</li>
+      <li class="list-group-item">Address : {{k.address}}</li>
+  </ul>
+</div>
+    </div>
+
+
+  {% endif %}
+  {% endfor %}
+</div>
+
+
+{% endif %}
+
+{% endblock %}
